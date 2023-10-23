@@ -14,7 +14,7 @@ pipeline {
     stage("install git")
       {
        steps {
-        sh 'apt install -y git'
+        sh 'sudo apt install -y git'
        }
       }
     stage("clone tests")
