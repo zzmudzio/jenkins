@@ -11,6 +11,12 @@ pipeline {
         echo 'hello, test stage' 
        }
       }
+    stage("install git")
+      {
+       steps {
+        sh 'apt install -y git'
+       }
+      }
     stage("clone tests")
       {
         steps {
