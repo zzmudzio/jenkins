@@ -21,7 +21,7 @@ pipeline {
     stage("run playwright tests")
     {
       steps {
-      mvn clean test -Dsurefire.suiteXmlFiles="src/test/java/suites/secondTestNG.xml"
+      sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/java/suites/secondTestNG.xml"
       }
     }
   }
