@@ -5,24 +5,6 @@ pipeline {
     } 
   }
   stages {
-    stage("hello world message")
-      {
-       steps {
-        echo 'hello, test stage' 
-       }
-      }
-    stage("update apt")
-      {
-       steps {
-        sh 'apt-get update'
-       }
-      }
-     stage("install git")
-      {
-       steps {
-        sh 'apt-get install -y --no-install-recommends git'
-       }
-      }
     stage("clone tests")
       {
         steps {
