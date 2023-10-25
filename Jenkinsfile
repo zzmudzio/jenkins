@@ -11,6 +11,12 @@ pipeline {
         sh "ls"
         }
       }
+    stage("run tests")
+      {
+        steps {
+        sh "mvn clean test -Dsurefire.suiteXmlFiles='src/test/java/suites/secondTestNG.xml'"
+        }
+      }
   }
 
 }
