@@ -1,9 +1,5 @@
 pipeline {
-  agent { 
-    docker { 
-      image 'mcr.microsoft.com/playwright/java:v1.35.0-jammy' 
-    } 
-  }
+  agent any
   stages {
     stage("clone tests")
       {
