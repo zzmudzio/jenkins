@@ -11,15 +11,22 @@ pipeline {
         echo 'hello, test stage' 
        }
       }
-    stage("install git")
+    stage("update apt")
       {
        steps {
-        sh 'apt-get install -y git'
+        sh 'apt-get update'
+       }
+      }
+     stage("install git")
+      {
+       steps {
+        sh 'apt-get install -y --no-install-recommends git'
        }
       }
     stage("clone tests")
       {
         steps {
+        sh "cd /opt"
         sh "git clone 'https://github.com/zzmudzio/jenkins.git'"
         sh "cd jenkins"
         }
