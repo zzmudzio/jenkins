@@ -11,17 +11,12 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                deleteDir()
+                cleanWs()
             }
         }
         stage('Checkout') {
             steps {
-                checkout([
-                        $class           : 'GitSCM',
-                        branches         : [[name: '*/master']],
-                        extensions       : [[$class: 'CleanCheckout'], [$class: 'LocalBranch'], [$class: 'WipeWorkspace']],
-                        userRemoteConfigs: scm.userRemoteConfigs
-                ])
+                checkout scm
             }
         }
         stage('Run Playwright regression tests') {
@@ -33,7 +28,7 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
-            deleteDir()
+            cleanWs()
         }
         success {
             echo 'I succeeded!'
