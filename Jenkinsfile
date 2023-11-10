@@ -9,11 +9,6 @@ pipeline {
         JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
     }
     stages {
-        stage('Clean') {
-            steps {
-                cleanWs()
-            }
-        }
         stage('Checkout') {
             steps {
                 checkout scm
