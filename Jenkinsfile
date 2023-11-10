@@ -23,7 +23,6 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
-            cleanWs()
         }
         success {
             echo 'I succeeded!'
@@ -33,6 +32,9 @@ pipeline {
         }
         failure {
             echo 'I failed :('
+        }
+        cleanup {
+            cleanWs()
         }
     }
 
