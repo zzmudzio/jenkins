@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run Playwright regression tests') {
             steps {
-                sh 'mvn clean test'
+                sh 'xvfb-run mvn clean test'
             }
         }
     }
