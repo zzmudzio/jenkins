@@ -21,6 +21,7 @@ public class MainPage {
     public void pageTitle_checkIfItIsReturned() {
         page.navigate("https://gdnvlnx81.dev.lsy.pl:8725/lido/lax/lax-datamaintenance-reports-ui/");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("LOGIN WITH LUFTHANSA SYSTEMS")).click();
+        page.waitForLoadState();
         System.out.println(page.content());
     }
 
