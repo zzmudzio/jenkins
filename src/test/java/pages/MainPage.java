@@ -21,8 +21,9 @@ public class MainPage {
     public void pageTitle_checkIfItIsReturned() {
         page.navigate("https://gdnvlnx81.dev.lsy.pl:8725/lido/lax/lax-datamaintenance-reports-ui/");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("LOGIN WITH LUFTHANSA SYSTEMS")).click();
-        page.getByLabel("Username");
         page.waitForLoadState();
+        System.out.println("filling login form");
+        page.locator("#idp-discovery-username").fill("test");
         System.out.println(page.content());
     }
 
