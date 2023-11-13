@@ -2,6 +2,7 @@ package pages;
 
 import com.lhsystems.lawa.idr.factory.PlaywrightFactory;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,7 +20,8 @@ public class MainPage {
     @Test(priority = 1)
     public void pageTitle_checkIfItIsReturned() {
         page.navigate("https://gdnvlnx81.dev.lsy.pl:8725/lido/lax/lax-datamaintenance-reports-ui/");
-        System.out.println(page.title());
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("LOGIN WITH LUFTHANSA SYSTEMS")).click();
+        page.getByLabel("Username");
     }
 
     @AfterTest
